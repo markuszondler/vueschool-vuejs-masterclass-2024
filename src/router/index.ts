@@ -1,3 +1,4 @@
+import { h } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -17,6 +18,11 @@ const router = createRouter({
       path: '/projects/:id',
       name: 'single-project',
       component: () => import('@/views/SingleProjectView.vue'),
+    },
+    {
+      path: '/:catchAll(.*)*',
+      name: 'not-found',
+      component: h('p', { style: { color: 'red' } }, '404 Page not found'),
     },
   ],
 })
